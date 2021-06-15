@@ -1,13 +1,15 @@
 # Bibliografia oficial e alternativa de 
 # DQF10648 Eletromagnetismo I
 
-## Semestre 2020/1 EARTE
+## Semestre 2021/1 EARTE
 
 ## Curso de Licenciatura em Física UFES-Alegre
 
 ### Bibliografia oficial
 
-Constando no plano de ensino oficial da disciplina "DQF10648 Eletromagnetismo I", temos livros que não têm versões gratuitas eletrônicas, somente versões impressas nas bibliotecas da UFES. Porém só parte dos alunos conseguiu acesso a tais bibliografias básica e complementar.
+Constando no plano de ensino oficial da disciplina "DQF10648 Eletromagnetismo I", temos alguns ulivros que não têm versões gratuitas eletrônicas, somente versões impressas nas bibliotecas da UFES.
+
+Mas o [Griffiths] tem versão eletrônica via site da UFES e será a bibliografia principal para teoria da disciplina.
 
 #### Bibliografia básica
 
@@ -21,15 +23,13 @@ Constando no plano de ensino oficial da disciplina "DQF10648 Eletromagnetismo I"
 
 ### Bibliografia acessível via site EARTE Bibliotecas
 
-Embora a UFES tenha noticiado em Agosto de 2020 que assinaria com editoras o acesso a muitos livros digitais para cobrir as bibliograficas das disciplinas ofertadas em 2020/1 EARTE, com links disponíveis em :
+[Ao final de 2020 a UFES assinou com editoras o acesso a muitos livros digitais](https://earte.ufes.br/bibliotecas#h.6i764vqokkkr) para cobrir as bibliograficas das disciplinas ofertadas em modo remoto EARTE, com links disponíveis em :
 
-- [EARTE Bibliotecas](https://earte.ufes.br/bibliotecas), onde o acesso a algumas editoras é via configuração do navegador web (vide vídeo ao final desse link) com proxy "proxycapes1.ufes.br" e porta 8080;
-
-Ao menos entre 09-11/2020 tal cobertura infelizmente não incluia livros de Física na área de Eletromagnetismo que fossem condizentes com essa disciplina de Eletromagnetismo I. 
+- [EARTE Bibliotecas](https://earte.ufes.br/bibliotecas), onde o livro do [Griffiths] felizmente está incluído, vide [Bibliotecas Digitais da UFES (precisa fazer login com email institucional da UFES)](https://bibliotecas-digitais.ufes.br/), depois ["Biblioteca Virtual Pearson"](https://bibliotecas-digitais.ufes.br/library/Pearson), crie conta gratuita no 1o acesso.
 
 ### Bibliografia alternativa gratuita disponível na Internet
 
-Até 11/2020 foram encontrados os seguintes títulos de acesso gratuito e legal úteis para cobrir ao menos parte do conteúdo programática da disciplina "DQF10648 Eletromagnetismo I" :
+Seguem alguns títulos de acesso gratuito e legal úteis para complementar a bibliografia oficial do conteúdo programático da disciplina "DQF10648 Eletromagnetismo I" :
 
 - [Bassalo2capitulos] Eletrodinâmica Clássica - José Maria Filardo Bassalo, com 
 [2 capítulos abertos : ELETROSTÁTICA EM UM MEIO MATERIAL, MAGNETOSTÁTICA NO VÁCUO](https://books.google.com.br/books/about/Eletrodin%C3%A2mica_Cl%C3%A1ssica.html?id=C6Cx2M_Zp2UC&redir_esc=y) somente para visualização (não pode salvar em arquivo);

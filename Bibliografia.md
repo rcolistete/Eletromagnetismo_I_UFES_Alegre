@@ -7,9 +7,9 @@
 
 ### Bibliografia oficial
 
-Constando no plano de ensino oficial da disciplina "DQF10648 Eletromagnetismo I", temos alguns ulivros que não têm versões gratuitas eletrônicas, somente versões impressas nas bibliotecas da UFES.
+Constando no plano de ensino oficial da disciplina "DQF10648 Eletromagnetismo I", temos alguns livros que não têm versões gratuitas eletrônicas, somente versões impressas nas bibliotecas da UFES.
 
-Mas o [Griffiths] tem versão eletrônica via site da UFES e será a bibliografia principal para teoria da disciplina.
+Mas **o livro [Griffiths] tem versão eletrônica via site da UFES e será a bibliografia principal para teoria da disciplina**.
 
 #### Bibliografia básica
 

@@ -1,12 +1,68 @@
 <!DOCTYPE html>
 <html>
 <head><meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="chrome=1" />
 
-<title>Aula_EletromagI_prev_20210622</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
 
+<title>Aula_EletromagI_20210622 slides</title><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 
+<!-- General and theme style sheets -->
+<link rel="stylesheet" href="https://unpkg.com/reveal.js@4.0.2/dist/reveal.css">
+<link rel="stylesheet" href="https://unpkg.com/reveal.js@4.0.2/dist/theme/simple.css" id="theme">
+
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+}
+</script>
+
+<!-- Loading the mathjax macro -->
+<!-- Load mathjax -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-MML-AM_CHTML-full,Safe"> </script>
+    <!-- MathJax configuration -->
+    <script type="text/x-mathjax-config">
+    init_mathjax = function() {
+        if (window.MathJax) {
+        // MathJax loaded
+            MathJax.Hub.Config({
+                TeX: {
+                    equationNumbers: {
+                    autoNumber: "AMS",
+                    useLabelIds: true
+                    }
+                },
+                tex2jax: {
+                    inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+                    displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+                    processEscapes: true,
+                    processEnvironments: true
+                },
+                displayAlign: 'center',
+                CommonHTML: {
+                    linebreaks: { 
+                    automatic: true 
+                    }
+                },
+                "HTML-CSS": {
+                    linebreaks: { 
+                    automatic: true 
+                    }
+                }
+            });
+        
+            MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+        }
+    }
+    init_mathjax();
+    </script>
+    <!-- End of mathjax configuration -->
 
 <style type="text/css">
     pre { line-height: 125%; }
@@ -14197,16 +14253,15 @@ a.anchor-link {
 .highlight  {
     margin: 0.4em;
 }
-
-/* Input area styling */
-.jp-InputArea {
-    overflow: hidden;
+.jp-Notebook {
+    padding: 0;
 }
-
-.jp-InputArea-editor {
-    overflow: hidden;
+:root {
+    --jp-ui-font-size1: 20px;       /* instead of 14px */
+    --jp-content-font-size1: 20px;  /* instead of 14px */
+    --jp-code-font-size: 19px;      /* instead of 13px */
+    --jp-cell-prompt-width: 110px;  /* instead of 64px */
 }
-
 @media print {
   body {
     margin: 0;
@@ -14214,73 +14269,226 @@ a.anchor-link {
 }
 </style>
 
+<style type="text/css">
+/* Overrides of notebook CSS for static HTML export */
+.reveal {
+  font-size: 160%;
+}
+.reveal pre {
+  width: inherit;
+  padding: 0.4em;
+  margin: 0px;
+  font-family: monospace, sans-serif;
+  font-size: 80%;
+  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
+}
+.reveal pre code {
+  padding: 0px;
+}
+.reveal section img {
+  border: 0px solid black;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0);
+}
+.reveal i {
+  font-style: normal;
+  font-family: FontAwesome;
+  font-size: 2em;
+}
+.reveal .slides {
+  text-align: left;
+}
+.reveal.fade {
+  opacity: 1;
+}
+.reveal .progress {
+  position: static;
+}
 
+div.jp-InputArea-editor {
+  padding: 0.06em;
+}
 
-<!-- Load mathjax -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-MML-AM_CHTML-full,Safe"> </script>
-    <!-- MathJax configuration -->
-    <script type="text/x-mathjax-config">
-    init_mathjax = function() {
-        if (window.MathJax) {
-        // MathJax loaded
-            MathJax.Hub.Config({
-                TeX: {
-                    equationNumbers: {
-                    autoNumber: "AMS",
-                    useLabelIds: true
-                    }
-                },
-                tex2jax: {
-                    inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-                    displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
-                    processEscapes: true,
-                    processEnvironments: true
-                },
-                displayAlign: 'center',
-                CommonHTML: {
-                    linebreaks: { 
-                    automatic: true 
-                    }
-                },
-                "HTML-CSS": {
-                    linebreaks: { 
-                    automatic: true 
-                    }
-                }
-            });
-        
-            MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
-        }
-    }
-    init_mathjax();
-    </script>
-    <!-- End of mathjax configuration --></head>
+div.code_cell {
+  background-color: transparent;
+}
+
+div.output_area pre {
+  font-family: monospace, sans-serif;
+  font-size: 80%;
+}
+
+div.jp-OutputPrompt {
+  /* 5px right shift to account for margin in parent container */
+  margin: 5px 5px 0 0;
+}
+
+/* Reveal navigation controls */
+
+.reveal .controls .navigate-left,
+.reveal .controls .navigate-left.enabled {
+  border-right-color: #727272;
+}
+.reveal .controls .navigate-left.enabled:hover,
+.reveal .controls .navigate-left.enabled.enabled:hover {
+  border-right-color: #dfdfdf;
+}
+.reveal .controls .navigate-right,
+.reveal .controls .navigate-right.enabled {
+  border-left-color: #727272;
+}
+.reveal .controls .navigate-right.enabled:hover,
+.reveal .controls .navigate-right.enabled.enabled:hover {
+  border-left-color: #dfdfdf;
+}
+.reveal .controls .navigate-up,
+.reveal .controls .navigate-up.enabled {
+  border-bottom-color: #727272;
+}
+.reveal .controls .navigate-up.enabled:hover,
+.reveal .controls .navigate-up.enabled.enabled:hover {
+  border-bottom-color: #dfdfdf;
+}
+.reveal .controls .navigate-down,
+.reveal .controls .navigate-down.enabled {
+  border-top-color: #727272;
+}
+.reveal .controls .navigate-down.enabled:hover,
+.reveal .controls .navigate-down.enabled.enabled:hover {
+  border-top-color: #dfdfdf;
+}
+.reveal .progress span {
+  background: #727272;
+}
+
+/* Scrollbars */
+
+::-webkit-scrollbar
+{
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar *
+{
+  background:transparent;
+}
+::-webkit-scrollbar-thumb
+{
+  background: #727272 !important;
+}
+</style>
+
+</head>
+
 <body class="jp-Notebook" data-jp-theme-light="true" data-jp-theme-name="JupyterLab Light">
 
+<div class="reveal">
+<div class="slides"><section><section>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h1 id="Disciplina---DQF10648-Eletromagnetismo-I">Disciplina - DQF10648 Eletromagnetismo I<a class="anchor-link" href="#Disciplina---DQF10648-Eletromagnetismo-I">&#182;</a></h1><h2 id="Aula-em-22/06/2021---Semestre-2021/1-EARTE">Aula em 22/06/2021 - Semestre 2021/1 EARTE<a class="anchor-link" href="#Aula-em-22/06/2021---Semestre-2021/1-EARTE">&#182;</a></h2><h3 id="DQF---CCENS---UFES/Alegre"><a href="http://alegre.ufes.br/ccens/departamento-de-quimica-e-fisica">DQF - CCENS</a> - <a href="http://alegre.ufes.br/">UFES/Alegre</a><a class="anchor-link" href="#DQF---CCENS---UFES/Alegre">&#182;</a></h3>
 </div>
+</div></section></section><section><section>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h1 id="Tirando-D&#250;vidas-sobre-Exerc&#237;cios/Trabalhos">Tirando D&#250;vidas sobre Exerc&#237;cios/Trabalhos<a class="anchor-link" href="#Tirando-D&#250;vidas-sobre-Exerc&#237;cios/Trabalhos">&#182;</a></h1>
 </div>
+</div></section><section>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="Exerc&#237;cio-&quot;Equa&#231;&#245;es-de-Maxwell-na-Forma-Integral&quot;">Exerc&#237;cio "Equa&#231;&#245;es de Maxwell na Forma Integral"<a class="anchor-link" href="#Exerc&#237;cio-&quot;Equa&#231;&#245;es-de-Maxwell-na-Forma-Integral&quot;">&#182;</a></h2>
+</div>
+</div><div class="fragment">
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Parte da turma queria saber como deduzir as equações de Maxwell, usando os teoremos de Cálculo, etc.</p>
+
+</div>
+</div></div><div class="fragment">
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Foi explicado que :</p>
+
+</div>
+</div></div><div class="fragment">
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<ul>
+<li>dedução das equações de Maxwell é em parte vista na disciplina "Física C", talvez também no início de "Física D";</li>
+</ul>
+
+</div>
+</div></div><div class="fragment">
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<ul>
+<li>para aqueles com deficiência desse conhecimento, fiquem tranquilos que tal assunto será visto detalhadamente nessa disciplina "Eletromagnetismo I";</li>
+</ul>
+
+</div>
+</div></div><div class="fragment">
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<ul>
+<li>em termos do livro principal da disciplina, [Griffiths], será vista a dedução das equações de Maxwell, inclusive passando da forma integral para diferencial e vice-versa, ao longo dos capítulos 2, 5 e 7;</li>
+</ul>
+
+</div>
+</div></div></section><section>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<ul>
+<li>será passsado em Julho um trabalho individual "Equações de Maxwell na Forma Integral e Diferencial", com prazo de entrega para final do semestre letivo, para, além do que foi feito no "Exercício "Equações de Maxwell na Forma Integral", também :<ul>
+<li>escrever 4 equações de Maxwell na forma diferencial;</li>
+<li>a partir da forma integral escrever na forma diferencial, e vice-versa;</li>
+<li>fazer gráfico mostrando o comportamento do campo vetorial para cada equação de Maxwell.</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div></section><section>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="Trabalho-Individual-:-Coordenadas-Curvil&#237;neas">Trabalho Individual : Coordenadas Curvil&#237;neas<a class="anchor-link" href="#Trabalho-Individual-:-Coordenadas-Curvil&#237;neas">&#182;</a></h2>
+</div>
+</div><div class="fragment">
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Parte da turma questionou como fazer ítens desse trabalho.</p>
+
+</div>
+</div></div><div class="fragment">
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Foi informado que as as aulas de 17/06, 22/06 e 24/06, junto com partes das referências bibliográficas citadas, tem a matéria suficiente para a resolução desse trabalho.</p>
+
+</div>
+</div></div><div class="fragment">
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>A data de entrega também foi adiada de 28/06 para 30/06/2021.</p>
+
+</div>
+</div></div></section></section><section><section>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h1 id="Coordenadas-Curvil&#237;neas">Coordenadas Curvil&#237;neas<a class="anchor-link" href="#Coordenadas-Curvil&#237;neas">&#182;</a></h1>
 </div>
-</div>
+</div><div class="fragment">
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p>Sobre coordenadas cartesianas, polares, cilíndricas e esféricas, vide :</p>
 
 </div>
-</div>
+</div></div><div class="fragment">
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <ul>
-<li><a href="https://github.com/rcolistete/Eletromagnetismo_I_UFES_Alegre/blob/master/Bibliografia.md">referências</a> [Griffiths], [Barcarena3] e [Marques]</li>
+<li><a href="https://github.com/rcolistete/Eletromagnetismo_I_UFES_Alegre/blob/master/Bibliografia.md">referências</a> [Griffiths], [Barcarena3] e [Marques];</li>
 </ul>
 
 </div>
-</div>
+</div></div><div class="fragment">
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <ul>
@@ -14288,401 +14496,420 @@ a.anchor-link {
 </ul>
 
 </div>
+</div></div><div class="fragment">
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Note que a <a href="https://github.com/rcolistete/Eletromagnetismo_I_UFES_Alegre/blob/master/Bibliografia.md">referência</a> :</p>
+<ul>
+<li>[Barcarena3] usa coordenadas generalizadas (como sinônimo de curvilíneas) $q_i$.</li>
+</ul>
+
 </div>
+</div></div></section></section><section><section>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h2 id="Fatores-de-escala-$h_i$-e-vetores-base-unit&#225;rios-$\hat{e}_i$">Fatores de escala $h_i$ e vetores base unit&#225;rios $\hat{e}_i$<a class="anchor-link" href="#Fatores-de-escala-$h_i$-e-vetores-base-unit&#225;rios-$\hat{e}_i$">&#182;</a></h2>
 </div>
-</div>
+</div><div class="fragment">
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Para se calcular os fatores de escala (ou escalares) $h_i$ e vetores base unitários $\hat{e}_i$ respectivos a um sistema de coordenadas curvilíneas $u_i$ :</p>
+<p>Para se calcular os fatores de escala (ou escalares) $h_i$ e vetores base unitários $\hat{e}_i$ respectivos a um sistema de coordenadas curvilíneas $u_i$, deve-se :</p>
 
 </div>
+</div></div><div class="fragment">
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<ul>
+<li>inicialmente saber transformar das coordenadas curvilíneas $u_i$ para o sistema de coordenadas cartesianas; </li>
+</ul>
+
 </div>
+</div></div><div class="fragment">
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<ul>
+<li>depois calcular derivadas parciais em relação às coordenadas curvilíneas $u_i$. </li>
+</ul>
+
+</div>
+</div></div><div class="fragment">
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Considerando espaço de 3 dimensões, $i$ tem valores inteiros $1$, $2$ e $3$.</p>
+
+</div>
+</div></div><div class="fragment">
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Em 5 passos, bem detalhadamente, considerando espaço de 3 dimensões :</p>
+
+</div>
+</div></div></section><section>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p>1) liste as equações de transformação de coordenadas curvilíneas $u_i$ para coordenadas cartesianas :</p>
 
 </div>
-</div>
+</div><div class="fragment">
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 $$ x = m(u_1, u_2, u_3)$$
 </div>
-</div>
+</div></div><div class="fragment">
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 $$ y = n(u_1, u_2, u_3)$$
 </div>
-</div>
+</div></div><div class="fragment">
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 $$ z = p(u_1, u_2, u_3)$$
 </div>
-</div>
+</div></div></section><section>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p>2) escreva o vetor posição $\vec{r}$ em termos de coordenadas cartesianas e depois substitua as componentes por expressões em coordenadas curvilíneas $u_i$ :</p>
 
 </div>
-</div>
+</div><div class="fragment">
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-$$ \vec{r} = \vec{r}(x, y, z) = x\,\hat{i} + y\,\hat{j} + z\,\hat{k}$$
+$$ \vec{r} = \vec{r}(x, y, z) = x\,\hat{i} + y\,\hat{j} + z\,\hat{k} \,\,\,\rightarrow$$
 </div>
-</div>
+</div></div><div class="fragment">
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-$$ \vec{r} = m(u_1, u_2, u_3)\,\hat{i} + n(u_1, u_2, u_3)\,\hat{j} + p(u_1, u_2, u_3)\,\hat{k}$$
+$$ \rightarrow \,\,\,\vec{r} = m(u_1, u_2, u_3)\,\hat{i} + n(u_1, u_2, u_3)\,\hat{j} + p(u_1, u_2, u_3)\,\hat{k}$$
 </div>
-</div>
+</div></div></section><section>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p>3) calcule a derivada parcial (primeira) de $\vec{r}$ em relação a cada coordenada curvilínea $u_i$ :</p>
 
 </div>
-</div>
+</div><div class="fragment">
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-$$ \frac{\partial\,\vec{r}}{\partial u_i} $$
+$$ \frac{\partial\,\vec{r}}{\partial u_i} \,\,\,\rightarrow$$
 </div>
-</div>
+</div></div><div class="fragment">
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-$$ \frac{\partial \vec{r}}{\partial u_i} = \frac{\partial m(u_1, u_2, u_3)}{\partial u_i}\,\hat{i} + \frac{\partial n(u_1, u_2, u_3)}{\partial u_i}\,\hat{j} + \frac{\partial p(u_1, u_2, u_3)}{\partial u_i}\,\hat{k} $$
+$$ \rightarrow \,\,\, \frac{\partial \vec{r}}{\partial u_i} = \frac{\partial m(u_1, u_2, u_3)}{\partial u_i}\,\hat{i} + \frac{\partial n(u_1, u_2, u_3)}{\partial u_i}\,\hat{j} + \frac{\partial p(u_1, u_2, u_3)}{\partial u_i}\,\hat{k} $$
 </div>
-</div>
+</div></div><div class="fragment">
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>4) o fator de escala $h_i$ é o módulo da derivada parcial (primeira) de $\vec{r}$ em relação à coordenada curvilínea $u_i$ :</p>
+<p>ou seja, são $3$ derivadas parciais de $\vec{r}$ em espaço $3$-dimensional, pois são $N$ derivadas parciais de $\vec{r}$ em espaço $N$-dimensional.</p>
 
 </div>
-</div>
+</div></div></section><section>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-$$ h_i = \left| \frac{\partial \vec{r}}{\partial u_i}\right| $$
+<p>4) o fator de escala $h_i$ respectivo à coordenada curvilínea $u_i$ é o módulo da derivada parcial (primeira) de $\vec{r}$ em relação à coordenada curvilínea $u_i$ :</p>
+
 </div>
-</div>
+</div><div class="fragment">
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-$$ h_i = \left| \frac{\partial \vec{r}}{\partial u_i} \right| = \left|\, \frac{\partial m(u_1, u_2, u_3)}{\partial u_i}\,\hat{i} + \frac{\partial n(u_1, u_2, u_3)}{\partial u_i}\,\hat{j} + \frac{\partial p(u_1, u_2, u_3)}{\partial u_i}\,\hat{k}\, \right| $$
+$$ h_i = \left| \frac{\partial \vec{r}}{\partial u_i}\right| \,\,\,\rightarrow $$
 </div>
+</div></div><div class="fragment">
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+$$ \rightarrow \,\,\, h_i = 
+\left|\, \frac{\partial x}{\partial u_i}\,\hat{i} + \frac{\partial y}{\partial u_i}\,\hat{j} + \frac{\partial z}{\partial u_i}\,\hat{k}\, \right| = 
+\sqrt{ \left[\frac{\partial x}{\partial u_i}\right]^2 + \left[\frac{\partial y}{\partial u_i}\right]^2  + \left[\frac{\partial z}{\partial u_i}\right]^2 } $$
 </div>
+</div></div><div class="fragment">
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+$$ \rightarrow \,\,\, h_i = \sqrt{ \left[ \frac{\partial m(u_1, u_2, u_3)}{\partial u_i} \right]^2 + \left[ \frac{\partial n(u_1, u_2, u_3)}{\partial u_i}\right]^2 + \left[\frac{\partial p(u_1, u_2, u_3)}{\partial u_i}\right]^2 } $$
+</div>
+</div></div></section><section>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Vide <a href="https://github.com/rcolistete/Eletromagnetismo_I_UFES_Alegre/blob/master/Bibliografia.md">referência</a> [Barcarena3], seção "5.1.3 Coordenadas Ortogonais" e anteriores, para obter a origem da expressão de $h_i$.</p>
+
+</div>
+</div><div class="fragment">
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>O fator de escala $h_i$ é utilizado para calcular, em coordenadas curvilíneas :</p>
+
+</div>
+</div></div><div class="fragment">
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<ul>
+<li>elemento diferencial de linha $dl$ (em integrais de linha, etc);</li>
+<li>elemento diferencial de área $dA$ (em integrais de superfície, etc);</li>
+<li>elemento diferencial de volume $dV$ (em integrais de volume, etc);</li>
+<li>jacobiano;</li>
+<li>gradiente;</li>
+<li>divergente;</li>
+<li>rotacional;</li>
+<li>laplaciano;</li>
+<li>etc. </li>
+</ul>
+
+</div>
+</div></div></section><section>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p>5) o vetor base unitário $\hat{e}_i$ é a derivada parcial (primeira) de $\vec{r}$ em relação à coordenada curvilínea $u_i$, normalizada, ou seja, dividida pelo módulo (= fator de escala $h_i$) :</p>
 
 </div>
+</div><div class="fragment">
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+$$ \frac{\partial \vec{r}}{\partial u_i} = h_i\,\hat{e}_i $$
 </div>
+</div></div><div class="fragment">
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>que é um vetor tangente à curva $u_i$. Depois veremos gráficos das curvas $u_i$ para certos sistemas de coordenadas curvilíneas, por enquanto vide <a href="https://github.com/rcolistete/Eletromagnetismo_I_UFES_Alegre/blob/master/Bibliografia.md">referência</a> [Silveira]), página 19 sobre coordenadas cilíndricas e página 26 sobre coordenadas esféricas.</p>
+
+</div>
+</div></div><div class="fragment">
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Evidenciando vetor base unitário $\hat{e}_i$, temos então :</p>
+
+</div>
+</div></div><div class="fragment">
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 $$ \hat{e}_i = \frac{1}{h_i} \frac{\partial \vec{r}}{\partial u_i} $$
 </div>
-</div>
+</div></div><div class="fragment">
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Exemplo-:--calculando-$h_i$-e--$\hat{e}_i$-para-coordenadas-polares-$(\rho,-\theta)$">Exemplo :  calculando $h_i$ e  $\hat{e}_i$ para coordenadas polares $(\rho, \theta)$<a class="anchor-link" href="#Exemplo-:--calculando-$h_i$-e--$\hat{e}_i$-para-coordenadas-polares-$(\rho,-\theta)$">&#182;</a></h2>
+<p>Vide <a href="https://github.com/rcolistete/Eletromagnetismo_I_UFES_Alegre/blob/master/Bibliografia.md">referência</a> [Barcarena3], seção "5.1.3 Coordenadas Ortogonais" e anteriores, para obter a origem da expressão de $h_i$.</p>
+
 </div>
+</div></div></section></section><section><section>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="Exemplo-:-calculando-$h_i$-e--$\hat{e}_i$-para-coordenadas-polares-$(\rho,-\theta)$">Exemplo : calculando $h_i$ e  $\hat{e}_i$ para coordenadas polares $(\rho, \theta)$<a class="anchor-link" href="#Exemplo-:-calculando-$h_i$-e--$\hat{e}_i$-para-coordenadas-polares-$(\rho,-\theta)$">&#182;</a></h2>
 </div>
+</div><div class="fragment">
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p>1) liste as equações de transformação de coordenadas curvilíneas polares $u_i$, ou seja, $(\rho, \theta)$ para coordenadas cartesianas $(x, y)$ :</p>
 
 </div>
-</div>
+</div></div><div class="fragment">
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 $$ x = m(u_1, u_2) = m(\rho, \theta) = \rho \cos \theta $$
 </div>
-</div>
+</div></div><div class="fragment">
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 $$ y = n(u_1, u_2) = n(\rho, \theta) = \rho \sin \theta $$
 </div>
-</div>
+</div></div></section><section>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p>2) escreva o vetor posição $\vec{r}$ em termos de coordenadas cartesianas $(x, y)$ e depois substitua as componentes por expressões em coordenadas curvilíneas polares $u_i$, ou seja, $(\rho, \theta)$ :</p>
 
 </div>
-</div>
+</div><div class="fragment">
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 $$ \vec{r} = \vec{r}(x, y) = x\,\hat{i} + y\,\hat{j}$$
 </div>
-</div>
+</div></div><div class="fragment">
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 $$ \vec{r} = m(u_1, u_2)\,\hat{i} + n(u_1, u_2)\,\hat{j} = m(\rho, \theta)\,\hat{i} + n(\rho, \theta)\,\hat{j} $$
 </div>
-</div>
+</div></div><div class="fragment">
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 $$ \vec{r} = \rho \cos \theta\,\hat{i} + \rho \sin \theta\,\hat{j} $$
 </div>
-</div>
+</div></div></section><section>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p>3) calcule a derivada parcial (primeira) de $\vec{r}$ em relação a cada coordenada curvilínea polar $u_i$, ou seja, $(\rho, \theta)$ :</p>
 
 </div>
-</div>
+</div><div class="fragment">
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 $$ \frac{\partial \vec{r}}{\partial u_i} = \frac{\partial m(u_1, u_2)}{\partial u_i}\,\hat{i} + \frac{\partial n(u_1, u_2)}{\partial u_i}\,\hat{j} = \frac{\partial m(\rho, \theta)}{\partial u_i}\,\hat{i} + \frac{\partial n(\rho, \theta)}{\partial u_i}\,\hat{j} $$
 </div>
-</div>
+</div></div><div class="fragment">
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 $$ \frac{\partial \vec{r}}{\partial u_i} = \frac{\partial \left(\rho \cos \theta\right)}{\partial u_i}\,\hat{i} + \frac{\partial \left(\rho \sin \theta\right)}{\partial u_i}\,\hat{j} $$
 </div>
-</div>
+</div></div></section><section>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p>aplicando a derivada parcial para cada coordenada curvilínea polar $(\rho, \theta)$ :</p>
 
 </div>
-</div>
+</div><div class="fragment">
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 $$ \frac{\partial \vec{r}}{\partial \rho} = \frac{\partial \left(\rho \cos \theta\right)}{\partial \rho}\,\hat{i} + \frac{\partial \left(\rho \sin \theta\right)}{\partial \rho}\,\hat{j} = \cos \theta\,\hat{i} + \sin \theta\,\hat{j} $$
 </div>
-</div>
+</div></div><div class="fragment">
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 $$ \frac{\partial \vec{r}}{\partial \theta} = \frac{\partial \left(\rho \cos \theta\right)}{\partial \theta}\,\hat{i} + \frac{\partial \left(\rho \sin \theta\right)}{\partial \theta}\,\hat{j} = - \rho \sin \theta\,\hat{i} + \rho \cos \theta\,\hat{j} $$
 </div>
-</div>
+</div></div></section><section>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p>4) o fator de escala $h_i$ é o módulo da derivada parcial (primeira) de $\vec{r}$ em relação à coordenada curvilínea polar $(\rho, \theta)$ :</p>
 
 </div>
-</div>
+</div><div class="fragment">
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 $$ h_i = \left| \frac{\partial \vec{r}}{\partial u_i} \right| = \left|\, \frac{\partial \left(\rho \cos \theta\right)}{\partial u_i}\,\hat{i} + \frac{\partial \left(\rho \sin \theta\right)}{\partial u_i}\,\hat{j}\, \right| $$
 </div>
-</div>
+</div></div></section><section>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p>$h_i$ cada coordenada curvilínea polar $(\rho, \theta)$ :</p>
 
 </div>
-</div>
+</div><div class="fragment">
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 $$ h_\rho = \left| \frac{\partial \vec{r}}{\partial \rho} \right| = \left|\, \frac{\partial \left(\rho \cos \theta\right)}{\partial \rho}\,\hat{i} + \frac{\partial \left(\rho \sin \theta\right)}{\partial \rho}\,\hat{j}\, \right| $$
 </div>
-</div>
+</div></div><div class="fragment">
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 $$ h_\rho = \left|\, \cos \theta\,\hat{i} + \sin \theta\,\hat{j}\, \right| = \sqrt{(\cos \theta)^2 + (\sin \theta)^2} $$
 </div>
-</div>
+</div></div><div class="fragment">
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 $$ h_\rho = 1 $$
 </div>
-</div>
+</div></div></section><section>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 $$ h_\theta = \left| \frac{\partial \vec{r}}{\partial \theta} \right| = \left|\, \frac{\partial \left(\rho \cos \theta\right)}{\partial \theta}\,\hat{i} + \frac{\partial \left(\rho \sin \theta\right)}{\partial \theta}\,\hat{j}\, \right| $$
 </div>
-</div>
+</div><div class="fragment">
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 $$ h_\theta = \left|\, - \rho \sin \theta\,\hat{i} + \rho \cos \theta\,\hat{j}\, \right| = \sqrt{(- \rho \sin \theta)^2 + (\rho \cos \theta)^2} $$
 </div>
-</div>
+</div></div><div class="fragment">
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 $$ h_\theta = \sqrt{\rho^2 (\sin \theta)^2 + \rho^2 (\cos \theta)^2} = \sqrt{\rho^2} = \left|\,  \rho\, \right| $$
 </div>
-</div>
+</div></div><div class="fragment">
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p>Considerando $\rho \geq 0\,m$, então :</p>
 
 </div>
-</div>
+</div></div><div class="fragment">
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 $$ h_\theta = \rho $$
 </div>
-</div>
+</div></div></section><section>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p>5) o vetor base unitário $\hat{e}_i$ é a derivada parcial (primeira) de $\vec{r}$ em relação à coordenada curvilínea $u_i$, normalizada, i. e., dividida pelo módulo, ou seja, pelo fator de escala $h_i$ :</p>
 
 </div>
-</div>
+</div><div class="fragment">
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 $$ \hat{e}_\rho = \frac{1}{h_\rho} \frac{\partial\vec{r}}{\partial \rho} = \frac{1}{1} \left[\cos \theta\,\hat{i} + \sin \theta\,\hat{j} \right] $$
 </div>
-</div>
+</div></div><div class="fragment">
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 $$ \hat{e}_\rho = \hat{\rho} = \cos \theta\,\hat{i} + \sin \theta\,\hat{j} $$
 </div>
-</div>
+</div></div><div class="fragment">
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 $$ \hat{e}_\theta = \frac{1}{h_\theta} \frac{\partial \vec{r}}{\partial \theta} = \frac{1}{\rho} \left[- \rho \sin \theta\,\hat{i} + \rho \cos \theta\,\hat{j} \right] $$
 </div>
-</div>
+</div></div><div class="fragment">
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 $$ \hat{e}_\theta = \hat{\theta} = - \sin \theta\,\hat{i} + \cos \theta\,\hat{j} $$
 </div>
-</div>
+</div></div></section></section><section><section>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Exerc&#237;cio-:--calcule-$h_i$-e--$\hat{e}_i$-para-coordenadas-esf&#233;ricas-$(r,-\theta,-\phi)$">Exerc&#237;cio :  calcule $h_i$ e  $\hat{e}_i$ para coordenadas esf&#233;ricas $(r, \theta, \phi)$<a class="anchor-link" href="#Exerc&#237;cio-:--calcule-$h_i$-e--$\hat{e}_i$-para-coordenadas-esf&#233;ricas-$(r,-\theta,-\phi)$">&#182;</a></h2>
+<h2 id="(A-FAZER)-Exerc&#237;cio-:--calcule-$h_i$-e--$\hat{e}_i$-para-coordenadas-esf&#233;ricas-$(r,-\theta,-\phi)$">(A FAZER) Exerc&#237;cio :  calcule $h_i$ e  $\hat{e}_i$ para coordenadas esf&#233;ricas $(r, \theta, \phi)$<a class="anchor-link" href="#(A-FAZER)-Exerc&#237;cio-:--calcule-$h_i$-e--$\hat{e}_i$-para-coordenadas-esf&#233;ricas-$(r,-\theta,-\phi)$">&#182;</a></h2>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
+</div><div class="fragment">
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Exercício para os alunos, não deu tempo de concluir, com 2 alunos apresentando parte inicial dos cálculos.</p>
+<p>A continuar na próxima aula, tirando dúvidas de todos os alunos.</p>
 
 </div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h1 id="Operadores-Diferenciais-Vetoriais">Operadores Diferenciais Vetoriais<a class="anchor-link" href="#Operadores-Diferenciais-Vetoriais">&#182;</a></h1>
-</div>
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Sobre coordenadas cartesianas, polares, cilíndricas e esféricas, vide :</p>
-
-</div>
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<ul>
-<li><a href="https://github.com/rcolistete/Eletromagnetismo_I_UFES_Alegre/blob/master/Bibliografia.md">referências</a> [Griffiths], [Barcarena2] e [Barcarena3];</li>
-</ul>
-
-</div>
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<ul>
-<li>demonstrações gráficas gratuitas no site <a href="https://demonstrations.wolfram.com/">Wolfram Demonstrations</a>;</li>
-</ul>
-
-</div>
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Gradiente-:-$\vec{\nabla}-f$">Gradiente : $\vec{\nabla} f$<a class="anchor-link" href="#Gradiente-:-$\vec{\nabla}-f$">&#182;</a></h2>
-</div>
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="Teoria">Teoria<a class="anchor-link" href="#Teoria">&#182;</a></h3>
-</div>
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Gradiente é um operador diferencial vetorial que atua sobre função escalar e gera função vetorial.</p>
-
-</div>
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Em coordenadas curvilíneas $u_i$ :</p>
-$$ \vec{\nabla} f = \left\langle \frac{1}{h_1}\frac{\partial}{\partial u_1}\hat{e}_1, \frac{1}{h_2}\frac{\partial}{\partial u_2}\hat{e}_2, \frac{1}{h_3}\frac{\partial}{\partial u_3}\hat{e}_3 \right\rangle f
-= \frac{1}{h_1}\frac{\partial f}{\partial u_1}\hat{e}_1 +  \frac{1}{h_2}\frac{\partial f}{\partial u_2}\hat{e}_2 + \frac{1}{h_3}\frac{\partial f}{\partial u_3}\hat{e}_3 $$
-</div>
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Operador diferencial vetorial gradiente (grad) em coordenadas cartesianas 2D $(x, y)$ :</p>
-$$\vec{\nabla} = \left\langle \frac{\partial}{\partial x}, \frac{\partial}{\partial y}\right\rangle = \frac{\partial}{\partial x}\hat{i} + \frac{\partial}{\partial y}\hat{j} $$
-</div>
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>em coordenadas polares $(\rho, \theta)$ :</p>
-$$\vec{\nabla} = \left\langle \frac{\partial }{\partial \rho},\frac{1}{\rho}\frac{\partial }{\partial \theta }\right\rangle = \frac{\partial }{\partial \rho}\hat{\rho} + \frac{1}{\rho}\frac{\partial }{\partial \theta }\hat{\theta}$$
-</div>
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>em coordenadas cartesianas 3D $(x, y, z)$ :</p>
-$$\vec{\nabla}=\left\langle \frac{\partial }{\partial x}, \frac{\partial }{\partial y}, \frac{\partial }{\partial z}\right\rangle = \frac{\partial}{\partial x}\hat{i} + \frac{\partial}{\partial y}\hat{j} + \frac{\partial}{\partial z}\hat{k}$$
-</div>
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Em coordenadas cilíndricas $(\rho, \theta, z)$ :</p>
-$$\vec{\nabla}=\left\langle \frac{\partial }{\partial \rho},\frac{1}{\rho}\frac{\partial }{\partial \theta},\frac{\partial }{\partial z}\right\rangle = \frac{\partial }{\partial \rho}\hat{\rho} + \frac{1}{\rho}\frac{\partial }{\partial \theta }\hat{\theta} + \frac{\partial }{\partial z}\hat{k} $$
-</div>
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Em coordenadas esféricas $(r, \theta, \phi)$ :</p>
-$$\vec{\nabla}=\left\langle \frac{\partial }{\partial r},\frac{1}{r}\frac{\partial }{\partial \theta},\frac{1}{r sen \theta}\frac{\partial }{\partial \phi}\right\rangle = \frac{\partial }{\partial r}\hat{r} + \frac{1}{r}\frac{\partial }{\partial \theta}\hat{\theta} + \frac{1}{r sen \theta}\frac{\partial }{\partial \phi}\hat{\phi}$$
-</div>
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Divergente-:-$\vec{\nabla}-\cdot-\vec{F}$">Divergente : $\vec{\nabla} \cdot \vec{F}$<a class="anchor-link" href="#Divergente-:-$\vec{\nabla}-\cdot-\vec{F}$">&#182;</a></h2>
-</div>
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="Teoria">Teoria<a class="anchor-link" href="#Teoria">&#182;</a></h3>
-</div>
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Divergente é um operador diferencial vetorial que atua sobre função vetorial e gera função escalar.</p>
-
-</div>
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Em coordenadas curvilíneas $u_i$ :</p>
-$$ \vec{\nabla} \cdot \vec{F} = \frac{1}{h_1 h_2 h_3}\left[ \frac{\partial\,(F_1 h_2 h_3)}{\partial u_1} + \frac{\partial\,(F_2 h_1 h_3)}{\partial u_2} + \frac{\partial\,(F_3 h_1 h_2)}{\partial u_e} \right] $$
-</div>
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Em coordenadas cartesianas 3D $(x, y, z)$ :</p>
-$$\vec{\nabla} \cdot \vec{F} = \frac{\partial F_x}{\partial x} + \frac{\partial F_y}{\partial y} + \frac{\partial F_z}{\partial z} $$
-</div>
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>em coordenadas cilíndricas $(\rho, \theta, z)$ :</p>
-$$\vec{\nabla} \cdot \vec{F} = \frac{1}{\rho}\frac{\partial\,(\rho F_{\rho})}{\partial \rho} + \frac{1}{\rho}\frac{\partial F_{\theta}}{\partial \theta} + \frac{\partial F_z}{\partial z} $$
-</div>
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>em coordenadas esféricas $(r, \theta, \phi)$ :</p>
-$$\vec{\nabla} \cdot \vec{F} = \frac{1}{r^2} \frac{\partial\,(r^2 F_r)}{\partial r} + \frac{1}{r sen \theta}\frac{\partial\,(sen \theta F_{\theta})}{\partial \theta} + \frac{1}{r sen \theta}\frac{\partial F_\phi}{\partial \phi} $$
+</div></div></section></section>
 </div>
 </div>
 </body>
 
 
+<script>
+require(
+    {
+      // it makes sense to wait a little bit when you are loading
+      // reveal from a cdn in a slow connection environment
+      waitSeconds: 15
+    },
+    [
+      "https://unpkg.com/reveal.js@4.0.2/dist/reveal.js"
+    ],
 
+    function(Reveal){
+        // Full list of configuration options available here: https://github.com/hakimel/reveal.js#configuration
+        Reveal.initialize({
+            controls: true,
+            progress: true,
+            history: true,
+            transition: "slide",
+        });
 
+        var update = function(event){
+          if(MathJax.Hub.getAllJax(Reveal.getCurrentSlide())){
+            MathJax.Hub.Rerender(Reveal.getCurrentSlide());
+          }
+        };
 
+        Reveal.addEventListener('slidechanged', update);
 
+        function setScrollingSlide() {
+            var scroll = false
+            if (scroll === true) {
+              var h = $('.reveal').height() * 0.95;
+              $('section.present').find('section')
+                .filter(function() {
+                  return $(this).height() > h;
+                })
+                .css('height', 'calc(95vh)')
+                .css('overflow-y', 'scroll')
+                .css('margin-top', '20px');
+            }
+        }
+
+        // check and set the scrolling slide every time the slide change
+        Reveal.addEventListener('slidechanged', setScrollingSlide);
+    }
+);
+</script>
 
 </html>

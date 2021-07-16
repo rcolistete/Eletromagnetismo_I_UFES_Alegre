@@ -53,5 +53,5 @@ O material escrito/gráfico de cada aula é disponibilizado em duas versões :
 
 Os arquivos .ipynb são visualizáveis diretamente no GitHub, mas sem mostrar o estilo de  apresentação. Enquanto que os arquivos .html não são visualizáveis diretamente no GitHub.
 
-Fazendo download de todo o repositório, dá para visualize no seu computador os arquivos .html e abrir os arquivos .ipynb via Jupyter Notebook/JupyterLab/Google Colab.
+Fazendo download de todo o repositório, dá para visualizar no seu computador os arquivos .html e abrir os arquivos .ipynb via Jupyter Notebook/JupyterLab/Google Colab.
 

@@ -30,7 +30,7 @@ Notar que haverá durante as aulas parte do tempo dedicado a resolução, discus
 - (24/08/2021) **Início de "Campo Elétrico na Matéria"**, com polarização, deslocamento elétrico e alteração nas leis de Gauss;
 - (26/08/2021) **Apresentação de trabalho em grupo** sobre materiais em Eletrostática. **Início de Magnetostática** com campo magnético B, força de Lorentz e lei de Bio-Savart;
 - (31/08/2021) Exemplos de lei de Biot-Savart em fios passando corrente elétrica, com cálculo analítico (à mão) de campo magnético B. Exemplos de cálculo e visualização computacional de campo magnético B via lei de Biot-Savart em fios passando corrente elétrica;
-- (02/09/2021) Divergente e rotacional de campo magnético B, lei de Ampère na forma diferencial e integral com transição de uma forma para outra. Aplicações da lei de Ampère em exemplos com simetrias cilíndrica;
+- (02/09/2021) Divergente e rotacional de campo magnético B, lei de Ampère na forma diferencial e integral com transição de uma forma para outra. Aplicações da lei de Ampère em exemplos com simetria cilíndrica;
 - (09/09/2021) Potencial vetor magnético A e algumas aplicações. Condições de contorno em Magnetostática;
 - (14/09/2021) Resolução de (dúvidas de) exercícios/trabalhos sobre método de separação de variáveis em coordenadas curvilíneas 2D e 3D, bem como Magnetostática;
 - (16/09/2021) **Início de "Campo Magnético na Matéria"**, com magnetização, campo auxiliar H e alteração nas equações de Maxwell, com alguns exemplos;

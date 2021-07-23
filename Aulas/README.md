@@ -19,7 +19,7 @@
 
 Notar que haverá durante as aulas parte do tempo dedicado a resolução, discussão de dúvidas, etc, de exercícios e trabalhos passados aos alunos, sendo difícil fazer previsão de data exata pois depende do andamento por parte dos alunos em termos de resolução e dúvidas dos exercícios e trabalhos. 
 
-- (27/07/2021) Finalização de cálculos de integrais do Teorema das cascas esféricas (homogêneas) para campo elétrico E. Lei de Gauss na forma diferencial e integral com transição de uma forma para outra. Aplicações da lei de Gauss em exemplos com simetrias cartesiana, esférica e cilíndrica. Gráficos de campos vetoriais 2D e 3D via Python, com exemplos de dipolo elétrico e anel circular;
+- (27/07/2021) Finalização de cálculos de integrais do teorema das cascas esféricas (homogêneas) para campo elétrico E. Lei de Gauss na forma diferencial e integral com transição de uma forma para outra. Aplicações da lei de Gauss em exemplos com simetrias cartesiana, esférica e cilíndrica. Gráficos de campos vetoriais 2D e 3D via Python, com exemplos de dipolo elétrico e anel circular;
 - (29/07/2021) Potencial elétrico V e equação de Poisson e Laplace. Cálculo de potencial elétrico V em exemplos de distribuição linear de carga elétrica, superficial e volumétrica. Exercícios de cálculo aplicado de operadores diferenciais vetoriais;
 - (03/08/2021) Condições de contorno em Eletrostática. Trabalho e energia em Eletrostática. Condutores elétricos, cargas induzidas e capacitores. Cálculo de operadores diferenciais vetoriais via Python + SymPy;
 - (05/08/2021) Resolução de (dúvidas de) exercícios/trabalhos sobre Anáise Vetorial e Eletrostática;
@@ -55,7 +55,7 @@ Os arquivos .ipynb são visualizáveis diretamente no GitHub, mas sem mostrar o 
 
 Fazendo download de todo o repositório, dá para visualizar no seu computador os arquivos .html e abrir os arquivos .ipynb via Jupyter Notebook/JupyterLab/Google Colab.
 
-Para instalar [RISE](https://rise.readthedocs.io/) para visualizar (e criar) apresentações feitas com Jupyter Notebook, recomendo usar no terminal :
+Para instalar [RISE](https://rise.readthedocs.io/) a fim de visualizar (e criar) apresentações feitas com Jupyter Notebook, recomendo usar no terminal :
 
 ```bash
 pip install RISE

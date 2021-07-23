@@ -3,7 +3,7 @@
 <head><meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Trabalho_em_Grupo_Aplicacao_de_Operadores_Diferenciais_Vetoriais</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>Aplicacao_de_Operadores_Diferenciais_Vetoriais</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 
 
 
@@ -14007,20 +14007,60 @@ a.anchor-link {
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Enviar resolução via essa atividade ao professor, com arquivo(s) ("Trabalho_AplicOpDifVet_NOME1_NOME2<em>DATA.EXTENSÃO", onde 'EXTENSÃO' é ".pdf", ".tex", etc), criando com extensão ".zip" (ou equivalente) se tiver mais de um arquivo, caso das opções (2) e (3) acima. Onde 'NOME1' ou 'NOME2' é nome de aluna/o, sem espaços e sem acentuação, mas pode usar '</em>', e 'DATA' é data de envio, sem espaços, p. e., 2021-08-09.
-Por exemplo, para alunos "Fulano" e "Beltrano" enviando um arquivo .ipynb no penúltimo dia, seria "Trabalho_AplicOpDifVet_Fulano_Beltrano_2021-08-08.ipynb".</p>
+<p>Enviar resolução via essa atividade ao professor, com arquivo(s) ("Trabalho_AplicOpDifVet_NOME1_NOME2<em>DATA.EXTENSAO", onde 'EXTENSAO' é ".pdf", ".tex", etc), criando com extensão ".zip" (ou equivalente) se tiver mais de um arquivo, caso das opções (2) e (3) acima. Onde 'NOME1' ou 'NOME2' é nome de aluna/o, sem espaços e sem acentuação, mas pode usar '</em>', e 'DATA' é data de envio, sem espaços, p. e., 2021-09-13.<br>
+Por exemplo, para alunos "Fulano" e "Beltrano" enviando um arquivo .ipynb no penúltimo dia, seria "Trabalho_AplicOpDifVet_Fulano_Beltrano_2021-09-12.ipynb".</p>
 
 </div>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h2 id="Motiva%C3%A7%C3%A3o">Motiva&#231;&#227;o<a class="anchor-link" href="#Motiva%C3%A7%C3%A3o">&#182;</a></h2><p>Esse trabalho é sobre aplicação prática dos operadores diferenciais vetoriais (gradiente, divergente, rotacional e laplaciano), em funções escalares e vetoriais comuns em Eletromagnetismo, representando exemplos reais de potencial elétrico, campo elétrico e (um pouco de) campo magnético, tal que a/o aluna/o :</p>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <ul>
 <li>pratique tais cálculos em diferentes sistemas de coordenadas 2D (cartesianas e polares) e 3D (cartesianas, cilíndricas e esféricas);</li>
+</ul>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<ul>
 <li>entenda, via prática, como obter campo elétrico a partir de potencial elétrico;</li>
+</ul>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<ul>
 <li>entenda, via prática, como obter a fonte de campo (densidade de cargas elétricas) a partir de divergente de campo elétrico;</li>
+</ul>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<ul>
 <li>verifique que campos elétricos (gerados por cargas elétricas) são conservativos, via cálculo de rotacional de campo elétrico mostrando ser nulo (vetor zero) em todo o domínio;</li>
+</ul>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<ul>
 <li>verifique que campo magnético gerado por corrente elétrica tem comportamento rotacional, via cálculo de rotacional de campo magnético mostrando ser não-nulo em ao menos parte do domínio;</li>
+</ul>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<ul>
 <li>pratique laplaciano em alguns potenciais elétricos.</li>
 </ul>
 
@@ -14217,7 +14257,6 @@ $$\vec{F}(\rho, \theta, z) = \vec{F} = k\,\hat{\theta} $$
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p>9) campo magnético $\vec{B} = \vec{F}$ gerado por um fio condutor cilíndrico circular reto infinito, com eixo do fio ao longo do eixo $z$, com raio $R$, com densidade superficial de corrente elétrica uniforme ($\vec{J} = J_0 \hat{k}$, pois a corrente elétrica flui ao longo do eixo do fio e sentido positivo), representado em coordenadas cilíndricas $(\rho, \theta, z)$ :</p>
-<p>(Continuar)</p>
 $$ \vec{F}(\vec{r}) = \vec{F}(\rho, \theta, z) = \vec{F}(\rho) = \frac{\mu_0\,J_0\,\rho\,\hat{\theta}}{2} \,,\,\,\,\,\textrm{para}\,\,\,\rho \le R $$$$ \vec{F}(\vec{r}) = \vec{F}(\rho, \theta, z) = \vec{F}(\rho) = \frac{\mu_0\,J_0\,R^2\,\hat{\theta}}{2\,\rho} \,,\,\,\,\,\textrm{para}\,\,\,\rho \ge R $$<p>Faça 2 cálculos, um para cada domínio do campo magnético $\vec{B}$.</p>
 
 </div>
